@@ -9,7 +9,7 @@ endif
 
 function! FindFunctions()
   let g:currentFileFindFunctions = shellescape(expand('%'))
-  execute (has('python3') ? 'py3file ' : 'pyfile ') g:format_ack_search_from_selection_filepath . 'index.py'
+  execute (has('python3') ? 'py3file ' : 'pyfile ') g:vim_list_javascript_functions_filepath . 'index.py'
 endfunc
 
 nmap <silent> <C-a>f :call FindFunctions()<CR>
