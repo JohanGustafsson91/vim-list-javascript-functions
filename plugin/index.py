@@ -7,7 +7,7 @@ findInFile = vim.eval('g:currentFileFindFunctions').replace("'", "")
 print("Find js functions in: " + findInFile + "\n\n")
 
 # Vanilla js
-vanillaJsRegex = re.compile(r"function( )?(.)*[(]*[)]")
+vanillaJsRegex = re.compile(r"function( )?(.)*[(]{1}.*[)]{1}.*[{]")
 vanillaJsMatches = []
 
 # Anonymous functions
