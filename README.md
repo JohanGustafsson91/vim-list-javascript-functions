@@ -11,6 +11,8 @@ Use your plugin manager of choice.
   - Add `Plugin 'JohanGustafsson91/vim-list-javascript-functions'`
   - Run `:BundleInstall`
 
+__NOTE:__ The plugin has only been tested on Linux
+
 ## Basic usage
 1. Press `<CTRL+a>f` in file
 2. Watch output of found functions
@@ -28,4 +30,6 @@ let g:vim_list_javascript_functions_filepath = 'new/file/path/'
 #### TODOs
 - [ ] Add support for filename extensions
 - [ ] Add support for user defined shortcut command
+- [ ] Test on Windows
+- [ ] Test on Mac
 
