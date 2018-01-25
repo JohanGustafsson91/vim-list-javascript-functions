@@ -14,6 +14,10 @@ vanillaJsMatches = []
 es6Regex = re.compile(r".*( )?=>( )?")
 es6Matches = []
 
+# Class functions
+classRegex = re.compile(r"[a-zA-Z]( )?(.)*[(]*[)].*[{]")
+classMatches = []
+
 class Match:
   def __init__(self, number, line):
     self.number = number
@@ -31,14 +35,22 @@ with open(findInFile, "r") as inputFile:
             # check if we have a regex match
             if vanillaJsRegex.search( line ):
                 vanillaJsMatches.append(Match(line_i, line.strip()))
-            elif es6Regex.search( line ):
+
+            if es6Regex.search( line ):
                 es6Matches.append(Match(line_i, line.strip()))
 
-
+            if classRegex.search( line ) and "function" not in line:
+                classMatches.append(Match(line_i, line.strip()))
 
 print("\n--- Vanilla js ---")
 if int(len(vanillaJsMatches)) > 0:
   print("\n".join(str(p) for p in vanillaJsMatches))
+else:
+  print("No found functions")
+
+print("\n--- Class functions ---")
+if int(len(classMatches)) > 0:
+  print("\n".join(str(p) for p in classMatches))
 else:
   print("No found functions")
 
