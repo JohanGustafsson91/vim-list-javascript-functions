@@ -15,7 +15,7 @@ es6Regex = re.compile(r".*( )?=>( )?")
 es6Matches = []
 
 # Class functions
-classRegex = re.compile(r"^(?!default|function|return|var|case|delete|if|switch|void|catch|do|in|this\.|while|const|else|insnceof|throw|with|continue|finally|let|try|debugger|for|new|typeof|function|export)( )?(.)*[(]*[)].*[{]")
+classRegex = re.compile(r"^(?!default|function|return|var|case|delete|if|switch|void|catch|do|in|this\.|while|const|else|insnceof|throw|with|continue|finally|let|try|debugger|for|new|typeof|function|export)[a-zA-Z]( )?(.)*[(]*[)].*[{]")
 classMatches = []
 
 class Match:
