@@ -15,7 +15,7 @@ es6Regex = re.compile(r".*( )?=>( )?")
 es6Matches = []
 
 # Class functions
-classRegex = re.compile(r"[a-zA-Z]( )?(.)*[(]*[)].*[{]")
+classRegex = re.compile(r"^(?!default|function|return|var|case|delete|if|switch|void|catch|do|in|this\.|while|const|else|insnceof|throw|with|continue|finally|let|try|debugger|for|new|typeof|function|export)( )?(.)*[(]*[)].*[{]")
 classMatches = []
 
 class Match:
@@ -33,13 +33,13 @@ with open(findInFile, "r") as inputFile:
         # loop through each line in corpus
         for line_i, line in enumerate(inputFile, 1):
             # check if we have a regex match
-            if vanillaJsRegex.search( line ):
+            if vanillaJsRegex.search(line):
                 vanillaJsMatches.append(Match(line_i, line.strip()))
 
-            if es6Regex.search( line ):
+            if es6Regex.search(line):
                 es6Matches.append(Match(line_i, line.strip()))
 
-            if classRegex.search( line ) and "function" not in line:
+            if classRegex.search(line):
                 classMatches.append(Match(line_i, line.strip()))
 
 print("\n--- Vanilla js ---")
