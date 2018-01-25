@@ -33,13 +33,13 @@ with open(findInFile, "r") as inputFile:
         # loop through each line in corpus
         for line_i, line in enumerate(inputFile, 1):
             # check if we have a regex match
-            if vanillaJsRegex.search(line):
+            if vanillaJsRegex.search(line.strip()):
                 vanillaJsMatches.append(Match(line_i, line.strip()))
 
-            if es6Regex.search(line):
+            if es6Regex.search(line.strip()):
                 es6Matches.append(Match(line_i, line.strip()))
 
-            if classRegex.search(line):
+            if classRegex.search(line.strip()):
                 classMatches.append(Match(line_i, line.strip()))
 
 print("\n--- Vanilla js ---")
